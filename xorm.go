@@ -1,6 +1,6 @@
 // +build xorm
 
-package mysql
+package dbdao
 
 import (
 	"github.com/carefreex-io/config"
@@ -13,10 +13,10 @@ import (
 	"time"
 )
 
-type DB struct {
+var (
 	Read  *xorm.Engine
 	Write *xorm.Engine
-}
+)
 
 type Log struct {
 	LogLevel log.LogLevel
@@ -37,7 +37,6 @@ type CustomOptions struct {
 }
 
 var (
-	Db                   = &DB{}
 	dbOnce               sync.Once
 	baseOptions          *BaseOptions
 	DefaultCustomOptions = &CustomOptions{}
@@ -66,17 +65,17 @@ func InitDB() (err error) {
 			return
 		}
 
-		if Db.Read, err = xorm.NewEngine("mysql", baseOptions.ReadDns); err != nil {
+		if Read, err = xorm.NewEngine("mysql", baseOptions.ReadDns); err != nil {
 			logger.Errorf("read xorm.NewEngine failed: err=%v", err)
 			return
 		}
-		setConfig(Db.Read)
+		setConfig(Read)
 
-		if Db.Write, err = xorm.NewEngine("mysql", baseOptions.WriteDns); err != nil {
+		if Write, err = xorm.NewEngine("mysql", baseOptions.WriteDns); err != nil {
 			logger.Errorf("write xorm.NewEngine failed: err=%v", err)
 			return
 		}
-		setConfig(Db.Write)
+		setConfig(Write)
 	})
 
 	return err
@@ -96,9 +95,9 @@ func setConfig(db *xorm.Engine) {
 }
 
 func NewReadSession() (db *xorm.Session) {
-	return Db.Read.NewSession()
+	return Read.NewSession()
 }
 
 func NewWriteSession() (db *xorm.Session) {
-	return Db.Write.NewSession()
+	return Write.NewSession()
 }

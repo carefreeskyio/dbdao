@@ -1,6 +1,6 @@
 // +build gorm
 
-package mysql
+package dbdao
 
 import (
 	"github.com/carefreex-io/config"
@@ -13,10 +13,10 @@ import (
 	"time"
 )
 
-type DB struct {
+var(
 	Read  *gorm.DB
 	Write *gorm.DB
-}
+)
 
 type Log struct {
 	ShowLog                   bool
@@ -40,7 +40,6 @@ type CustomOptions struct {
 }
 
 var (
-	Db                   = &DB{}
 	dbOnce               sync.Once
 	baseOptions          *BaseOptions
 	DefaultCustomOptions = &CustomOptions{
@@ -88,11 +87,11 @@ func InitDB() (err error) {
 			TablePrefix:   baseOptions.TablePrefix,
 			SingularTable: true,
 		}
-		if Db.Read, err = gorm.Open(mysql.Open(baseOptions.ReadDns), DefaultCustomOptions.GormConfig); err != nil {
+		if Read, err = gorm.Open(mysql.Open(baseOptions.ReadDns), DefaultCustomOptions.GormConfig); err != nil {
 			logger.Errorf("gorm.Open failed: err=%v", err)
 			return
 		}
-		if err = setConfig(Db.Read); err != nil {
+		if err = setConfig(Read); err != nil {
 			logger.Errorf("set read db config failed: err=%v", err)
 			return
 		}
@@ -103,11 +102,11 @@ func InitDB() (err error) {
 			IgnoreRecordNotFoundError: baseOptions.Logger.IgnoreRecordNotFoundError,
 			Colorful:                  false,
 		})
-		if Db.Write, err = gorm.Open(mysql.Open(baseOptions.WriteDns), DefaultCustomOptions.GormConfig); err != nil {
+		if Write, err = gorm.Open(mysql.Open(baseOptions.WriteDns), DefaultCustomOptions.GormConfig); err != nil {
 			logger.Errorf("gorm.Open failed: err=%v", err)
 			return
 		}
-		if err = setConfig(Db.Write); err != nil {
+		if err = setConfig(Write); err != nil {
 			logger.Errorf("set write db config failed: err=%v", err)
 			return
 		}
@@ -130,17 +129,17 @@ func setConfig(db *gorm.DB) error {
 }
 
 func NewReadSession() (db *gorm.DB) {
-	return Db.Read.Session(defaultSessionOptions)
+	return Read.Session(defaultSessionOptions)
 }
 
 func NewReadSessionWithOptions(options *gorm.Session) (db *gorm.DB) {
-	return Db.Read.Session(options)
+	return Read.Session(options)
 }
 
 func NewWriteSession() (db *gorm.DB) {
-	return Db.Write.Session(defaultSessionOptions)
+	return Write.Session(defaultSessionOptions)
 }
 
 func NewWriteSessionWithOptions(options *gorm.Session) (db *gorm.DB) {
-	return Db.Write.Session(options)
+	return Write.Session(options)
 }
