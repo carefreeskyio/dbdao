@@ -1,6 +1,4 @@
-// +build gorm
-
-package dbdao
+package gormdb
 
 import (
 	"github.com/carefreex-io/config"

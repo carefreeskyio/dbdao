@@ -1,6 +1,4 @@
-// +build xorm
-
-package dbdao
+package xormdb
 
 import (
 	"github.com/carefreex-io/config"

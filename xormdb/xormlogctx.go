@@ -1,4 +1,4 @@
-package dbdao
+package xormdb
 
 import (
 	"fmt"
