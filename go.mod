@@ -9,8 +9,8 @@ require (
 	github.com/agrison/go-tablib v0.0.0-20160310143025-4930582c22ee // indirect
 	github.com/agrison/mxj v0.0.0-20160310142625-1269f8afb3b4 // indirect
 	github.com/bndr/gotabulate v1.1.2 // indirect
-	github.com/carefreex-io/config v0.0.0-20220124114250-915f601e9d3e
-	github.com/carefreex-io/logger v0.0.0-20220126142718-64cf9688a43e
+	github.com/carefreex-io/config v0.0.1
+	github.com/carefreex-io/logger v0.0.1
 	github.com/clbanning/mxj v1.8.4 // indirect
 	github.com/fatih/structs v1.1.0 // indirect
 	github.com/mattn/go-sqlite3 v1.14.10 // indirect

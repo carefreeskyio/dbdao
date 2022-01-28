@@ -83,6 +83,8 @@ github.com/bndr/gotabulate v1.1.2/go.mod h1:0+8yUgaPTtLRTjf49E8oju7ojpU11YmXyvq1
 github.com/carefreex-io/config v0.0.0-20220124103001-13dbc9b48c19/go.mod h1:8MN6nNV9ee/3v70+2G+TUqxemMyyvektt73egWVPTto=
 github.com/carefreex-io/config v0.0.0-20220124114250-915f601e9d3e h1:yVaXuxFVCKqjZ7/eHhZT8x0POckrkyP7RG2ZLpf1tCQ=
 github.com/carefreex-io/config v0.0.0-20220124114250-915f601e9d3e/go.mod h1:8MN6nNV9ee/3v70+2G+TUqxemMyyvektt73egWVPTto=
+github.com/carefreex-io/config v0.0.1 h1:Nt2QS66353bMCYsV79UEKOGGQKsq5r+OogGz9jtIcgY=
+github.com/carefreex-io/config v0.0.1/go.mod h1:8MN6nNV9ee/3v70+2G+TUqxemMyyvektt73egWVPTto=
 github.com/carefreex-io/logger v0.0.0-20220124125156-0a27eece1ee1 h1:ZJXl0o/6vveOSubDRZtVCLD9IYTV3jkZOWhOoH4jcJ8=
 github.com/carefreex-io/logger v0.0.0-20220124125156-0a27eece1ee1/go.mod h1:buLAlTLhoK//VfnIejrIgCiT6xtwpQ85OxBtPvIWPSg=
 github.com/carefreex-io/logger v0.0.0-20220125074511-a519a492b1bc h1:75R7/EVgkm4CTocEos2cj2JrKV/eODjPr+G4fv9cDm0=
@@ -91,6 +93,8 @@ github.com/carefreex-io/logger v0.0.0-20220126141702-6f62f9d9b1a4 h1:q9hc797P/ka
 github.com/carefreex-io/logger v0.0.0-20220126141702-6f62f9d9b1a4/go.mod h1:buLAlTLhoK//VfnIejrIgCiT6xtwpQ85OxBtPvIWPSg=
 github.com/carefreex-io/logger v0.0.0-20220126142718-64cf9688a43e h1:2d6+c48jqB4gYPcSRPR6MUQEmlEXMmNwRxrlDiIfo1I=
 github.com/carefreex-io/logger v0.0.0-20220126142718-64cf9688a43e/go.mod h1:buLAlTLhoK//VfnIejrIgCiT6xtwpQ85OxBtPvIWPSg=
+github.com/carefreex-io/logger v0.0.1 h1:5YKYdUHrjpXJvZMeB+zQ2+5Iw9PwtzAZm30nK4sS5bk=
+github.com/carefreex-io/logger v0.0.1/go.mod h1:cbN9QYErzMMnsHlqDZCI4BB/yHATFvxU4NSz9/2MdwE=
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
 github.com/census-instrumentation/opencensus-proto v0.3.0/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
 github.com/cespare/xxhash v1.1.0/go.mod h1:XrSqR1VqqWfGrhpAt58auRo0WTKS1nRRg3ghfAqPWnc=
